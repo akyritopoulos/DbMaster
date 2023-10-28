@@ -1,13 +1,22 @@
 const express = require('express');
-const app = express();
-const pool = require('./db/db.js');
+let pool = require('./services/db-pool');
+let path = require('path');
 
-const PORT = process.env.PORT || 3000;
+let app = express();
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-app.get('/', (req, res) => {
-  res.json({ useres: ['userOne', 'userTwo', 'userThree'] });
-});
+if (process.env.NODE_ENV === 'development') {
+  const cors = require('cors');
+  app.use(
+    cors({
+      origin: ['http://localhost:3001'],
+      methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+      credentials: true,
+    })
+  );
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+  console.info('app running at port 3000...');
+  module.exports = app;
+}
