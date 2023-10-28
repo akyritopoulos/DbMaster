@@ -1,6 +1,7 @@
 const express = require('express');
 let pool = require('./services/db-pool');
 let path = require('path');
+let indexRouter = require('./routes/index');
 
 let app = express();
 // view engine setup
@@ -16,6 +17,8 @@ if (process.env.NODE_ENV === 'development') {
       credentials: true,
     })
   );
+
+  app.use('/', indexRouter);
 
   module.exports = app;
 }

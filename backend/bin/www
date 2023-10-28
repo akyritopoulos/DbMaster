@@ -15,7 +15,8 @@ let http = require('http');
 let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-console.info(`app running at port ${port}...`);
+console.info(`app running at port http://localhost:${port}...`);
+
 /**
  * Create HTTP server.
  */
