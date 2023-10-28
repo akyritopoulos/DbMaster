@@ -17,6 +17,5 @@ if (process.env.NODE_ENV === 'development') {
     })
   );
 
-  console.info('app running at port 3000...');
   module.exports = app;
 }
