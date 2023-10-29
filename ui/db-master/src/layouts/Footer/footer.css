@@ -1,0 +1,25 @@
+#item-terms {
+  margin-left: 30px;
+}
+#item-knowledge {
+  margin-left: auto;
+}
+#footer-container {
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 100px 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  #footer-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 4px 4px;
+  }
+  #item-knowledge {
+    margin-left: 30px;
+  }
+}

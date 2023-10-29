@@ -1,0 +1,18 @@
+{
+  "Labels": {
+    "FileUpload": "Ανέβασμα Αρχείου",
+    "TableLabels": {
+      "search": "Κριτήρια Αναζήτησης"
+    }
+  },
+  "tooltip": {
+    "deleteEntry": "Διαγραφή Εισαγωγής",
+    "checkSelectedFile": "Δείτε τo επιλεγμένo αρχείo"
+  },
+  "footer": {
+    "itemKEEE": "© ΚΕΕΕ",
+    "itemTerms": "Όροι Χρήσης & Πολιτικής προστασίας προσωπικών δεδομένων",
+    "itemDesignedBy": "Σχεδιάστηκε και Αναπτύχθηκε από",
+    "knowledge": "Knowledge AE"
+  }
+}
