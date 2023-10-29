@@ -5,6 +5,7 @@ import companyRouter from './routes/CompanyRouter';
 import employeesRouter from './routes/EmployeesRouter';
 import categoriesRouter from './routes/CategoriesRouter';
 import productsRouter from './routes/ProductsRouter';
+import customersRoutes from './routes/CustomersRoutes';
 
 const app: Express = express();
 
@@ -27,5 +28,6 @@ app.use('/companies', companyRouter);
 app.use('/employees', employeesRouter);
 app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
+app.use('/customers', customersRoutes);
 
 export default app;
