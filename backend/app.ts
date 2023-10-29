@@ -3,6 +3,7 @@ import path from 'path';
 import indexRouter from './routes/index';
 import companyRouter from './routes/CompanyRouter';
 import employeesRouter from './routes/EmployeesRouter';
+import categoriesRouter from './routes/CategoriesRouter';
 
 const app: Express = express();
 
@@ -23,5 +24,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/', indexRouter);
 app.use('/companies', companyRouter);
 app.use('/employees', employeesRouter);
+app.use('/categories', categoriesRouter);
 
 export default app;
