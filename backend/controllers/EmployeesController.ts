@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import { CompanyService } from '../services/CompanyService';
+import { EmployeesService } from '../services/EmployeesService';
 
-const companyService: CompanyService = new CompanyService();
+const employeesService: EmployeesService = new EmployeesService();
 
-export class CompanyController {
-  async getAllCompanies(req: Request, res: Response) {
+export class EmployeesController {
+  async getAllEmployees(req: Request, res: Response) {
     try {
-      const companies = await companyService.getAllCompanies();
-      res.json(companies);
+      const employees = await employeesService.getAllEmployees();
+      res.json(employees);
     } catch (error) {
       if (error instanceof Error) {
         res.status(500).json({ message: error.message });
@@ -19,14 +19,14 @@ export class CompanyController {
     }
   }
 
-  async getCompanyById(req: Request, res: Response) {
+  async getEmployeeById(req: Request, res: Response) {
     const { id } = req.params;
     try {
-      const company = await companyService.getCompanyById(parseInt(id));
-      if (company) {
-        res.json(company);
+      const employees = await employeesService.getEmployeeById(parseInt(id));
+      if (employees) {
+        res.json(employees);
       } else {
-        res.status(404).json({ message: 'Company not found' });
+        res.status(404).json({ message: 'Employees not found' });
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -39,11 +39,11 @@ export class CompanyController {
     }
   }
 
-  async createCompany(req: Request, res: Response) {
-    const companyData = req.body;
+  async createEmployee(req: Request, res: Response) {
+    const employeeData = req.body;
     try {
-      const newCompany = await companyService.createCompany(companyData);
-      res.status(201).json(newCompany);
+      const newEmployee = await employeesService.createEmployee(employeeData);
+      res.status(201).json(newEmployee);
     } catch (error) {
       if (error instanceof Error) {
         res.status(500).json({ message: error.message });
@@ -55,18 +55,18 @@ export class CompanyController {
     }
   }
 
-  async updateCompany(req: Request, res: Response) {
+  async updateEmployee(req: Request, res: Response) {
     const { id } = req.params;
-    const companyData = req.body;
+    const employeeData = req.body;
     try {
-      const updatedCompany = await companyService.updateCompany(
+      const updatedEmployee = await employeesService.updateEmployee(
         parseInt(id),
-        companyData
+        employeeData
       );
-      if (updatedCompany) {
-        res.json(updatedCompany);
+      if (updatedEmployee) {
+        res.json(updatedEmployee);
       } else {
-        res.status(404).json({ message: 'Company not found' });
+        res.status(404).json({ message: 'Employee not found' });
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -79,12 +79,14 @@ export class CompanyController {
     }
   }
 
-  async deleteCompany(req: Request, res: Response) {
+  async deleteEmployee(req: Request, res: Response) {
     const { id } = req.params;
     try {
-      const deletedCompany = await companyService.deleteCompany(parseInt(id));
-      if (deletedCompany) {
-        res.json(deletedCompany);
+      const deleteEmployee = await employeesService.deleteEmployee(
+        parseInt(id)
+      );
+      if (deleteEmployee) {
+        res.json(deleteEmployee);
       } else {
         res
           .status(404)

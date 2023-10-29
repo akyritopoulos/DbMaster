@@ -1,7 +1,8 @@
 import express, { Express } from 'express';
 import path from 'path';
 import indexRouter from './routes/index';
-import companyRouter from './routes/CompanyRouter'
+import companyRouter from './routes/CompanyRouter';
+import employeesRouter from './routes/EmployeesRouter';
 
 const app: Express = express();
 
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
   );
 }
 app.use('/', indexRouter);
-app.use('/companies', companyRouter)
+app.use('/companies', companyRouter);
+app.use('/employees', employeesRouter);
 
 export default app;

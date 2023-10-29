@@ -9,11 +9,14 @@ export class CompanyService {
     return await CompanyModel.getCompanyById(id);
   }
 
-  async createCompany(companyData: Company): Promise<Company> {
+  async createCompany(companyData: Company): Promise<Company | null> {
     return await CompanyModel.createCompany(companyData);
   }
 
-  async updateCompany(id: number, companyData: Company): Promise<Company | null> {
+  async updateCompany(
+    id: number,
+    companyData: Company
+  ): Promise<Company | null> {
     return await CompanyModel.updateCompany(id, companyData);
   }
 
