@@ -4,6 +4,7 @@ import indexRouter from './routes/index';
 import companyRouter from './routes/CompanyRouter';
 import employeesRouter from './routes/EmployeesRouter';
 import categoriesRouter from './routes/CategoriesRouter';
+import productsRouter from './routes/ProductsRouter';
 
 const app: Express = express();
 
@@ -25,5 +26,6 @@ app.use('/', indexRouter);
 app.use('/companies', companyRouter);
 app.use('/employees', employeesRouter);
 app.use('/categories', categoriesRouter);
+app.use('/products', productsRouter);
 
 export default app;
