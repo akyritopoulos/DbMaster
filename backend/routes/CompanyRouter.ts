@@ -11,3 +11,4 @@ router.put('/:id', companyController.updateCompany);
 router.delete('/:id', companyController.deleteCompany);
 
 export default router;
+    

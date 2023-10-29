@@ -1,7 +1,7 @@
 import express, { Express } from 'express';
-import pool from './services/db-pool';
 import path from 'path';
 import indexRouter from './routes/index';
+import companyRouter from './routes/CompanyRouter'
 
 const app: Express = express();
 
@@ -18,8 +18,8 @@ if (process.env.NODE_ENV === 'development') {
       credentials: true,
     })
   );
-
-  app.use('/', indexRouter);
 }
+app.use('/', indexRouter);
+app.use('/companies', companyRouter)
 
 export default app;
